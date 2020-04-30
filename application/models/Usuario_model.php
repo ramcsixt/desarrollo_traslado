@@ -13,7 +13,7 @@ class Login_model extends CI_Model
      * @param string $password : This is encrypted password of the user
      *  u.nombre, u.apellido, u.id_usuario, lu.usuario, lu.clave,m.nombre, um.* 
      */
-    function loginMe($usuario, $contrasena)
+ /*   function loginMe($usuario, $contrasena)
     {
        
         $this->db->select( 'u.nombre, u.apellido, u.cargo, u.id_usuario, lu.usuario, lu.clave, m.nombre as modulo, um.*');

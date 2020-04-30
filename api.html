@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #map{
+        width: 500px;
+        height: 500px;
+    }
+</style>
+<body>
+    <div id="map">
+
+    </div>
+    <script src="http://www.google.com/jsapi?key=AIzaSyC-ggbFI6FeJq57KVAOeYBqdKUALh41F-U&libraries=places"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous""></script>
+   
+    <script>
+        google.maps.event.addDonListener(window, "load", function(){
+            const ubicacion = new localizacion(()=>{
+                var texto = '<h1> Nombre del Luagra </h1>' + '<p>Descripcion del Lugar </p>'+
+                            '<a href="https://www.google.com"> Pagina Web </a>';
+                
+                const options = {
+                    center: myLatLng,
+                    zoom: 14
+                }
+                var map = document.getElementById('map');
+                const mapa = new google.maps.Map(map,options);
+                const marcador = new google.maps.Marker({
+                    position: myLatLng,
+                    map: mapa,
+                    title: "My primer Marcador"
+                });
+                var informacion = new google.maps.InfoWindow({
+                    content: texto
+                })
+                marcador.addListener('click', function(){
+                    informacion.open(mapa, marcador);
+                });
+
+            });
+        });
+
+    </script>
+</body>
+</html>

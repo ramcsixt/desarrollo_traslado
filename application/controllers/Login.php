@@ -2,24 +2,99 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 error_reporting(0);
 class Login extends CI_Controller {
+	public function __construct(){
+		parent::__construct(); 
+		$this->load->model('Login_model');
+		$this->load->database();
+		$this->load->library('session');
+		$this->load->helper('url');
+		header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+		//$this->request = json_decode(file_get_contents('php://input'));
+	}
 
-	public function Index($v="")
+	public function index()
 	{
-		/*$dato=array(
+		$dato=array(
 			'error'=>$this->session->flashdata('error'),
 			'username'=>$this->session->flashdata('username'),
 			'type'=>$_GET["type"]
 
 		);
-		if($v=="v2"){
-			$this->load->view('Login/v2/Index',$dato);
-		}else{
-			$this->load->view('Login/v1/Index',$dato);
-		}*/
-		echo "<h1>Proyecto de Traslado</h1>";
-
+			$this->load->view('include/login/head');
+			$this->load->view('login/index',$dato);
+			$this->load->view('include/login/footer');
 	}
 
+	public function validar_acceso()
+	{
+		
+		$data = $this->input->post();
+		$usuario = $data['correo'];
+		$contrasena = md5($data['password']);
+		$result = $this->Login_model->loginMe($usuario, $contrasena);
+		if ($result != 1 && $result != 2) {
+			$data['usuario']= $$result;
+			$user_data = array(
+				'apellido' 	 => $result[0]->apellido, 
+				'id_usuario' => $result[0]->id_usuario,
+				'nombre'    => $result[0]->nombre,
+				'cargo' 	 => $result[0]->cargo,
+				'correo'   => $result[0]->usuario,
+				'logeado'	 => true 
+			);
+			$this->session->set_userdata($user_data);
+			$this->load->view('include/escritorio/head');
+			$this->load->view('escritorio/index',$data);
+			$this->load->view('include/escritorio/footer');
+		}
+		else{
+			$data['error'] = $result;
+			$this->load->view('include/login/head');
+			$this->load->view('login/index',$data);
+			$this->load->view('include/login/footer');
+		}
+
+		
+	}
+
+	/*
+		$data = $this->input->post();
+		$usuario = $data['usuario'];
+		$contrasena = $data['password'];
+		$result = $this->Login_model->loginMe($usuario, $contrasena);
+		$data['error'] = $result;
+		if (($result==2) || ($result==1)|| ($result==3)) {
+			$this->load->view('login', $data);
+			
+		}else{
+			
+			$user_data = array(
+				'apellido_p' => $result[0]->apellido_p, 
+				'dni' 		 => $result[0]->dni,
+				'nombres'    => $result[0]->nombres,
+				'personal_id'=> $result[0]->personal_id,
+				'perfil' 	 => $result[0]->perfil,
+				'sucursal'   => $result[0]->sucursal,
+				'logeado'	 => true 
+ 			);
+			$this->session->set_userdata($user_data);
+			$perfil = $this->session->userdata('personal_id');
+			if (($perfil == 1)||($perfil == 2)||($perfil == 3)) {
+				$sucursal = '0';
+				$data['perfil'] = $this->session->userdata('perfil');
+			}
+			else{
+				$sucursal = $this->session->userdata('sucursal');
+				$data['perfil'] = $this->session->userdata('perfil');
+			}
+
+		//$data['sucursales'] = $this->sucursalModel->buscarSucursal($sucursal);
+
+			$this->load->view('principal', $perfil);
+			//$this->load->view('includes/footer');
+		}
+	
 	public function Verificador()
 	{
 		$this->load->model(array(
@@ -58,6 +133,6 @@ class Login extends CI_Controller {
 		);
 		$this->session->set_userdata($usuario_data);
 		redirect('/','refresh');
-	}
+	}*/
 
 }

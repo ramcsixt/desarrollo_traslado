@@ -1,45 +1,65 @@
 <div class="container" style="font-size: 12px; text-align: -webkit-center; font-weight: bold;">
             <div class="panel-heading">
-                <form class="form" name="form_viaje">
-                    <div class="row" style="padding-top: 5px;">
-                        <div col-4>
-                            <img src="<?php echo base_url("Public/img/logo/remesse_logo.png")?>" alt="REMESSE" style="width: 120px; height: 38px; padding-left: 13px;">
+                <form class="form" name="form_traslado" id="form_traslado" >
+                    <!--EDIT 01-->
+                    <div class="row">
+                        <div class="col-6 offset-3 col-sm-2 offset-sm-0">
+                        <a class="header-logo" href="#">
+                            <img src="<?php echo base_url("Public/rux/images/logo-remisse.svg")?>" alt="" class="img-fluid">
+                        </a>
                             <input type="hidden" id="url" name="url" value="<?php echo base_url();?>">
                         </div>
                         
-                        <div class="col-8">
-                            <label style="padding-top: 17px;">Servicio de Traslado </label>                  
+                        <div class="col d-none d-sm-block col-sm-6 offset-sm-4 text-right title-ss">
+                            <label>Servicio de Traslado </label>                  
                         </div>
-                  </div>
-                    <hr>
-                    <div class="row" style="margin-bottom: 20px;">
+                    </div>
+                    <!--END EDIT (Quité BR)-->
+
+                    <!--EDIT 02
+                    1. quité estulos al div.row
+                    2. Agrué classe a div.row + steps
+                    3. Luego del button #circleN°, agregué <span>
+                    
+                    -->
+                    <div class="row steps">
                         <div class="col-3">
-                        <div class="title">
                             <span class="number" >
-                                <button id="circle1" type="button" class="btn btn-circle" style="background-color: rgb(255, 95, 0); color:white">
-                                    <i class="fa" aria-hidden="true" id="cheked1">1</i>
+                                <button id="circle1" type="button" class="btn active" style="background-color: rgb(255, 95, 0); color:white">
+                                    <i class="fa" aria-hidden="true" id="cheked1"></i>
+                                    <span class="step-number" id="circle1n">1</span>
+                                    <span class="step-title" id="circle1l">¿A QUIÉN LLEVAMOS?</span>
                                 </button>
                             </span>
                           
-                        </div>
                         
                         </div>
                         <div class="col-3">
                             <span class="number" >
-                                <button id="circle2" type="button" class="btn btn-warning btn-circle" style="background-color: #969696; color:white">
-                                    <i class="fa" aria-hidden="true" id="cheked2">2</i>
+                                <button id="circle2" type="button" class="btn btn-warning " style="background-color: #969696; color:white">
+                                    <i class="fa" aria-hidden="true" id="cheked2"></i>
+                                    <span class="step-number" id="circle2n">2</span>
+                                    <span class="step-title" id="circle2l">¿A dónde vamos?</span>
                                 </button>
                             </span>
                         </div>
                         <div class="col-3">
-                            <button id="circle3" type="button" class="btn btn-warning btn-circle"  style="background-color: #969696; color:white">
-                                <i class="fa" aria-hidden="true" id="cheked3">3</i>
-                            </button>
+                            <span class="number">
+                                <button id="circle3" type="button" class="btn btn-warning "  style="background-color: #969696; color:white">
+                                    <i class="fa" aria-hidden="true" id="cheked3"></i>
+                                    <span class="step-number" id="circle3n">3</span>
+                                    <span class="step-title" id="circle3l">programar viaje</span>
+                                </button>
+                            </span>
                         </div>
                         <div class="col-3">
-                        <button id="circle4" type="button" class="btn btn-warning btn-circle"  style="background-color: #969696; color:white">
-                            <i class="fa" aria-hidden="true" id="cheked4">4</i>
-                        </button>
+                            <span class="number">
+                                <button id="circle4" type="button" class="btn btn-warning "  style="background-color: #969696; color:white">
+                                    <i class="fa" aria-hidden="true" id="cheked4"></i>
+                                    <span class="step-number" id="circle4n">4</span>
+                                    <span class="step-title" id="circle4l">pagar</span>
+                                </button>
+                            </span>
                         </div>
                         <hr>
                     </div>
@@ -47,9 +67,11 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="container-fluid" style="margin-top: 18px; color:rgb(255, 95, 0); font-size: 14px;">
+                                    <div class="container-fluid carry-index">
+                                    <!--<div class="container-fluid" style="margin-top: 18px; color:rgb(255, 95, 0); font-size: 14px;">-->
                                        <div class="form-row" style="text-align: justify;">
-                                            <div class="col-12" style=" margin-bottom: 20px;">
+                                            <!--<div class="col-12" style=" margin-bottom: 20px;">-->
+                                            <div class="col-12">
                                                 <span class="title_text">¿A QUIÉN LLEVAMOS?</span>
                                             </div>
                                         </div>
@@ -80,9 +102,10 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="container-fluid" style="margin-top: 18px; color:rgb(255, 95, 0); font-size: 14px;">
+                                    <div class="container-fluid map-index" style="margin-top: 18px; color:rgb(255, 95, 0); font-size: 14px;">
                                        <div class="form-row" style="text-align: justify;">
-                                            <div class="col-12" style=" margin-bottom: 20px;">
+                                            <!--<div class="col-12" style=" margin-bottom: 20px;">-->
+                                            <div class="col-12">
                                                 <span class="title_text">¿Dónde te recojemos?</span>
                                             </div>
                                         </div>
@@ -102,9 +125,9 @@
 
                                             </div>
                                             <div class="col-12" style="padding-top: 10px;">
-                                                <div id="map" style="height: 500px;	width: 100%;padding-top: 20px;">
-                                                   <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31206.907600214043!2d-77.0463574565432!3d-12.121494091715405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8137c30393f%3A0x5268cb2b1c4b162b!2sMiraflores!5e0!3m2!1ses-419!2spe!4v1587911066670!5m2!1ses-419!2spe" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>-->
-                                                </div>
+                                                <div id="map" style=" height: 350px; width: 100%; padding-top: 20px;"></div>
+                                                <div id="duration"><span class="badge badge-success"style="font-size: 14px">Duración: </span></div>
+                                                <div id="distance"><span class="badge badge-success"style="font-size: 14px">Distancia: </span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +140,8 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="container-fluid" style="margin-top: 18px; color:rgb(255, 95, 0); font-size: 14px;">
+                                    <div class="container-fluid travel-index">
+                                    <!--<div class="container-fluid" style="margin-top: 18px; color:rgb(255, 95, 0); font-size: 14px;">-->
                                        <div class="form-row" style="text-align: justify;">
                                             <div class="col-12" style=" margin-bottom: 20px;">
                                                 <span class="title_text">Programar Viaje</span>
@@ -176,7 +200,7 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="container-fluid" style="margin-top: 18px; color:rgb(255, 95, 0); font-size: 14px;">
+                                    <div class="container-fluid pay-index" style="margin-top: 18px; color:rgb(255, 95, 0); font-size: 14px;">
                                        <div class="form-row" style="text-align: justify;">
                                             <div class="col-12" style=" margin-bottom: 20px;">
                                                 <span class="title_text">PAGO</span>
@@ -231,10 +255,10 @@
                     </div>
                     
                     <div class="row" style="padding-top: 35px;">
-                        <div class="col-6" style="text-align: initial;">
+                        <div class="col-4 col-sm-6" style="text-align: initial;">
                             <label id="pagin" style="font-size: 12px; color: #927f7ff7; padding-top: 20px;">Paso 1 de 4</label>
                         </div>
-                        <div class="col-6">
+                        <div class="col-8 col-sm-6 text-right">
                            
                             <button type="button" id="rev" class="btn btn-outline-secondary" style="background-color: #6c757d; color: white; display: none;">Atras</button>
                             <button type="button" id="next" data-descripcion="Viaje de ida y retorno" data-producto="Traslado" data-precio=400 class="btn btn-outline-warning" style="background-color: #ff5722; color: white;">Siguiente</button>
@@ -249,19 +273,17 @@
         <div class="modal" id="mensaje" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="titulo_mensaje">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <div class="modal-header" id="header_modal" style="color: white;">
+                  <h4 class="modal-title" id="titulo_mensaje" style="padding-top: -13px">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                  <p id="cuerpo_mensaje">Modal body text goes here.</p>
+                    <p id="cuerpo_mensaje_modal">Modal body text goes here.</p>
                 </div>
                 <div class="modal-footer">
-                  
-                  <button type="button" class="btn btn-secondary" id="cerrar_mensaje" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" id="cerrar_mensaje" data-dismiss="modal">Cerrar</button>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
+    </div>
+    
+    

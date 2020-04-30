@@ -4,18 +4,22 @@ error_reporting(0);
 class Traslado extends CI_Controller
 {
 	public function __construct(){
+        if(!$this->session->userdata('logueado')){
+			redirect('/');
+		}
 		header('Access-Control-Allow-Origin: *');
 		header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 		parent::__construct();
-		$this->load->model('traslado/trasladoModel');
-		$this->request = json_decode(file_get_contents('php://input'));	
+		$this->load->model('usuario_model');
+        $this->request = json_decode(file_get_contents('php://input'));	
+        
 	}
 
 	public function Index()
 	{
-		$this->load->view('include/traslado/head');
-		$this->load->view('traslado/index');
-		$this->load->view('include/traslado/footer');
+		$this->load->view('include/login/head');
+		$this->load->view('usuario/index');
+		$this->load->view('include/login/footer');
 	}
 
 	public function enviar_prospecto(){

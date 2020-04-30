@@ -54,4 +54,5 @@ $route['default_controller'] = 'Traslado';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//$route['pago_traslado'] = 'traslado/pago_traslado';
+$route['panel'] = 'login/validar_acceso';
+$route['panel/usuario'] = 'usuario';
