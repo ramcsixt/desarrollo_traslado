@@ -31,7 +31,7 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<div class="col-sm-6" style="display: inline-flex; margin-top: -1px; margin-bottom: -16px;">
             	<ol class="breadcrumb float-sm-left" style="background-color: #49505700;">
-					  <li class="breadcrumb-item"><a href="<?php echo base_url('crm/panel?id_usuario=').$this->session->userdata('id_usuario');?>" style="color: white !important;"><i class="fas fa-desktop"></i>  Escritorio</a></li>
+              		<li class="breadcrumb-item"><a href="#" style="color: white !important;"><i class="fas fa-desktop"></i>  Escritorio</a></li>
               		<li class="breadcrumb-item active" style="color: white !important;"><i class="fas fa-user-tie"></i> Usuario</li>
             	</ol>
           	</div>

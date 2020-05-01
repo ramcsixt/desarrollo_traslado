@@ -113,19 +113,6 @@ class Usuario_model extends CI_Model
     
        return $resultu;
     }
-
-    public function retorno($id_usuario)
-    {
-        $this->db->select( 'u.nombre, u.apellido, u.cargo, u.id_usuario, lu.usuario, lu.clave, m.nombre as modulo, m.icono, m.url, um.*');
-        $this->db->from('usuario u');
-        $this->db->join('login_usuario lu','u.id_usuario = lu.id_usuario');
-        $this->db->join('modulo_usuario um','um.id_usuario = u.id_usuario');
-        $this->db->join('modulos m','m.id_modulos = um.id_modulo');
-        $this->db->where('u.id_usuario', $id_usuario);
-        $query = $this->db->get();
-        $user = $query->result();
-        return $user;
-    }
     
     
 }

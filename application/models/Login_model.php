@@ -16,13 +16,13 @@ class Login_model extends CI_Model
     function loginMe($usuario, $contrasena)
     {
        
-        $this->db->select( 'u.nombre, u.apellido, u.cargo, u.id_usuario, lu.usuario, lu.clave, m.nombre as modulo, um.*');
+        $this->db->select( 'u.nombre, u.apellido, u.cargo, u.id_usuario, lu.usuario, lu.clave, m.nombre as modulo, m.icono, m.url, um.*');
         $this->db->from('usuario u');
         $this->db->join('login_usuario lu','u.id_usuario = lu.id_usuario');
         $this->db->join('modulo_usuario um','um.id_usuario = u.id_usuario');
         $this->db->join('modulos m','m.id_modulos = um.id_modulo');
         $this->db->where('lu.usuario', $usuario);
-        $this->db->where('lu.status', '1');
+        $this->db->where('u.status', '1');
         $query = $this->db->get();
         $user = $query->result();
         if(!empty($user)){

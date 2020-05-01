@@ -1,6 +1,6 @@
 
 
-	<form class="form-signin" id="form_login" action="<?php echo base_url('panel')?>"  method="post">
+	<form class="form-signin" id="form_login" action="<?php echo base_url('crm')?>"  method="post">
 
 			<div class="card">
 				<div class="card-body">

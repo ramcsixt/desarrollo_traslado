@@ -8,6 +8,13 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="<?php echo base_url("Public/system/css/bootstrap.css")?>">
 	<link href="<?php echo base_url("Public/fonts/all.css")?>" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<link href="<?php echo base_url("Public/system/css/toastr.css")?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.5/css/rowReorder.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+	<script src="<?php echo base_url("Public/system/js/toastr.min.js")?>"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
 	<title>Dashboard</title>
 </head>
@@ -43,20 +50,4 @@
 	}
 </style>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" style="border-bottom: #0070D2 3px solid;">
-	<h4>MC Laren</h4>
-	<div class="collapse navbar-collapse" id="navbarCollapse">
-		<ul class="navbar-nav mr-auto">
-		</ul>
-		<ul class="navbar-nav ml-md-auto">
-			<li class="nav-item dropdown">
-				<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Bienvenido <?php echo $this->session->userdata('nombre')." ".$this->session->userdata('apellido')?>
-				</a>
-				<div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="bd-versions">
-					<a class="dropdown-item" href="#" id="btncerrarsession">Cerrar Sesion</a>
-				</div>
-			</li>
-		</ul>
-	</div>
-</nav>
+

@@ -54,5 +54,14 @@ $route['default_controller'] = 'Traslado';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['panel'] = 'login/validar_acceso';
-$route['panel/usuario'] = 'usuario';
+$route['crm/panel']              = 'usuario/retorno';
+
+$route['crm']                    = 'login/validar_acceso';
+$route['crm/usuario']            = 'usuario';
+    $route['listar_usuario']     = 'usuario/listar';
+    $route['crear_usuario']      = 'usuario/crear';
+    $route['buscar_usuario']     = 'usuario/buscar';
+    $route['actualizar_usuario'] = 'usuario/actualizar';
+    $route['cambio_status']      = 'usuario/cambio_status';
+    
+   

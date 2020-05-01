@@ -1,7 +1,5 @@
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 		<script src="<?php echo base_url("Public/system/js/bootstrap.js")?>"></script>
 		<script src="<?php echo base_url("Public/system/js/jspanel.js")?>"></script>
 		<script src="<?php echo base_url("Public/system/js/iziModal.js")?>"></script>
@@ -24,6 +22,9 @@
 		<script src="<?php echo base_url("resource/plugins/js/ai_datepicker/i18n/datepicker.es.js") ?>"></script>
 		<script src="<?php echo base_url("resource/plugins/js/tags/bootstrap-tagsinput.js") ?>"></script>
 		<script src="<?php echo base_url("resource/plugins/js/wizard/jquery.smartWizard.js")?>"></script>
+		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/rowreorder/1.2.5/js/dataTables.rowReorder.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
 
 

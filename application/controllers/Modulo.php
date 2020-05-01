@@ -92,14 +92,4 @@ class Usuario extends CI_Controller
 		echo json_encode($result);
 	    exit();
 	}
-	public function retorno()
-	{
-		$id_usuario = $_REQUEST['id_usuario'];
-		$data = $this->input->post();
-		$result = $this->usuario_model->retorno($id_usuario);
-		$dato['usuario']= $result;
-		$this->load->view('include/escritorio/head');
-		$this->load->view('escritorio/index',$dato);
-		$this->load->view('include/escritorio/footer');
-	}
 }

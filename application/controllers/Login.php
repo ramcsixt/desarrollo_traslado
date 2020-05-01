@@ -34,24 +34,24 @@ class Login extends CI_Controller {
 		$contrasena = md5($data['password']);
 		$result = $this->Login_model->loginMe($usuario, $contrasena);
 		if ($result != 1 && $result != 2) {
-			$data['usuario']= $$result;
+			$dato['usuario']= $result;
 			$user_data = array(
 				'apellido' 	 => $result[0]->apellido, 
 				'id_usuario' => $result[0]->id_usuario,
 				'nombre'    => $result[0]->nombre,
 				'cargo' 	 => $result[0]->cargo,
 				'correo'   => $result[0]->usuario,
-				'logeado'	 => true 
+				'legueado'  => 1 
 			);
 			$this->session->set_userdata($user_data);
 			$this->load->view('include/escritorio/head');
-			$this->load->view('escritorio/index',$data);
+			$this->load->view('escritorio/index',$dato);
 			$this->load->view('include/escritorio/footer');
 		}
 		else{
-			$data['error'] = $result;
+			$dato['error'] = $result;
 			$this->load->view('include/login/head');
-			$this->load->view('login/index',$data);
+			$this->load->view('login/index',$dato);
 			$this->load->view('include/login/footer');
 		}
 
